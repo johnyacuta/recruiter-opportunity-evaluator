@@ -42,5 +42,5 @@
 - Use the status icons consistently: ✅ PASS, ❌ FAIL, ❔ UNKNOWN. Always include the text status so meaning does not rely on color or emoji.
 - Keep the report compact. Omit sections that have no relevant content, but retain the minimum-requirement results.
 - Link sources beside the claims they support. Clearly state when research was not performed.
-- Do not include private settings such as the configured salary threshold in the report. State only whether the opportunity meets the configured floor.
+- Do not include personal preferences such as the salary threshold or full skills profile in the report. State only whether the opportunity meets the floor and summarize relevant fit.
 - Never let positive signals obscure a failed hard gate.

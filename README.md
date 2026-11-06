@@ -5,23 +5,22 @@ A skill-first MVP for evaluating recruiter messages you paste into an AI assista
 ## Repository contents
 
 - `SKILL.md` — evaluator workflow and recommendation rules.
-- `user_settings_config.yaml.example` — public template for personal settings.
-- `.gitignore` — excludes the private `user_settings_config.yaml`.
+- `.gitignore` — blocks any legacy `user_settings_config.yaml` from being committed.
 - `references/` — evaluation criteria, company research guidance, and report format.
 - `examples/` — fictional sample opportunities and expected outcomes.
 
 ## Configure and use
 
-1. Copy `user_settings_config.yaml.example` to `user_settings_config.yaml` in the repository root.
-2. Edit the private copy with your salary floor, region, title preferences, skills profile, and other settings. The `.gitignore` excludes it from Git.
-3. Provide the skill and its reference files to an assistant that supports reusable skills, then paste a recruiter message for evaluation.
+1. Provide the skill and its reference files to an assistant that supports reusable skills.
+2. On first use in a conversation, answer the setup questions in natural language: salary floor/currency/period, remote and region preferences, target titles, skills and certification status, and any optional culture threshold. You do not need to edit or create a settings file.
+3. Paste a recruiter message. The assistant reuses your answers in the same conversation; a new conversation starts setup again.
 4. Review the report, especially UNKNOWN items, and confirm research claims using linked sources.
 
-Do not share or commit the private settings file. The example file should contain only generic or fictional values. If you already committed personal data, removing it from the latest version does not remove it from Git history.
+Preferences are kept in the conversation context only. The skill does not read or create a settings file, and the repository does not contain a user settings template. Conversation messages are still subject to the platform's normal retention and privacy settings. The `.gitignore` entry remains as a safeguard for legacy local settings files. If personal data was committed previously, removing it from the latest version does not remove it from Git history.
 
 ## Job title preferences
 
-Set `target_job_titles` to a YAML list and organize `candidate_skills` under the categories shown in the example. Skills categories contain lists; certifications are objects with `name`, `status`, and `expiration_date` (use `null` when there is no expiration date). The template's sample values are fictional formatting examples—replace them in your ignored local copy, and do not put your personal profile in the public template. The evaluator treats close title variants and adjacent skills as relevant matches, while distinguishing direct matches from gaps. `employment_type_is_hard_gate: true` means contract, contract-to-hire, part-time, or other non-full-time arrangements are a no-go; unclear terms are UNKNOWN until confirmed.
+During setup, list target titles and skills in any convenient format. Include certification name and whether it is current or expired. The evaluator treats close title variants and adjacent skills as relevant matches, while distinguishing direct matches from gaps. Direct full-time employment is always a hard gate; contract, contract-to-hire, part-time, or other non-full-time arrangements are a no-go, and unclear terms are UNKNOWN until confirmed.
 
 ## MVP scope and limits
 
