@@ -4,6 +4,12 @@
 
 Compare the role title and actual responsibilities with `target_job_titles` from the private settings. A close title variant or strongly overlapping responsibilities can be a match; explain why. Do not require exact string equality. If the list is empty or missing, mark title fit UNKNOWN. Treat title fit as a relevance signal, not a hard gate, unless the user explicitly configures otherwise.
 
+## Skills alignment
+
+Compare the posting's required and preferred skills with `candidate_skills` in the private settings. Summarize the strongest direct matches, transferable/adjacent skills, and material gaps. Account for equivalent tools or related experience without claiming equivalence as certainty. Do not infer proficiency level, years of experience, or hands-on experience unless the settings or source message state it. If no candidate skills are configured, mark alignment UNKNOWN.
+
+Keep certifications and their status accurate. A certification explicitly marked expired must be described as expired and must not count as a current certification. It may be mentioned as prior training or credential history only when relevant. Skills alignment is a fit signal, not a hard gate unless the user separately configures it as one.
+
 ## Hard gates
 
 Evaluate remote/location eligibility, employment type, and compensation according to the user's settings.

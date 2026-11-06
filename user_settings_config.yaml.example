@@ -20,3 +20,13 @@ target_job_titles:
   - Senior DevOps Engineer
   - Senior Infrastructure Engineer
   - Senior Software Engineer - Infrastructure
+
+# Add your skills privately in user_settings_config.yaml.
+# Keep these example categories empty to avoid publishing a personal profile.
+candidate_skills:
+  languages: []
+  ai_assisted_development: []
+  cloud: []
+  infrastructure_as_code: []
+  ci_cd: []
+  certifications: []

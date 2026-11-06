@@ -4,6 +4,7 @@
 
 **Role:** <title> at <company or unnamed client>  
 **Title fit:** Strong match / Partial match / Weak match / Unknown — <short explanation>
+**Skills alignment:** Strong / Partial / Limited / Unknown — <top matches and key gaps; do not expose the full private profile>
 
 ### Minimum requirements
 
