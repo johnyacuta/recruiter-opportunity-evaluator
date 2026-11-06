@@ -20,12 +20,13 @@ Settings include currency, minimum base salary, salary period and hard-gate choi
 1. Extract company, role/title, location/work arrangement, employment type, compensation range and basis, recruiter claims, job link, and useful details. Separate explicit statements from inference.
 2. Assess title fit against `target_job_titles`. Treat close variants as a likely match and explain the overlap; do not require exact text. If no list is configured, mark title fit UNKNOWN. Title fit is a relevance signal, not a hard gate unless the user explicitly asks for that behavior.
 3. Apply configured hard gates: remote/location eligibility, employment type when `employment_type_is_hard_gate` is true, and compensation floor when configured as a hard gate. Full-time means direct full-time employment. Contract, contract-to-hire, part-time, or other non-full-time arrangements FAIL this gate. If the message is silent or ambiguous about employment type, mark UNKNOWN; do not assume a contract is full-time from the hours or title.
-4. If a known hard gate fails, lead with the mismatch and recommend Decline. Skip broad research unless immediately relevant. Unknown is not pass or fail.
-5. Research useful company questions using available permitted tools. If research tools are unavailable or not performed, state that clearly and mark unsupported signals UNKNOWN.
-6. Evaluate financial outlook and culture as quality signals unless the settings explicitly make a threshold a hard gate. Explain evidence, limitations, and conflicts.
-7. Return the report using `references/report-template.md`.
+4. If any configured hard gate FAILS, lead with the mismatch and recommend Decline. Do not search for the job posting or do broader company research.
+5. If any configured hard gate is UNKNOWN, recommend Gather details first and list what needs confirmation. Do not search for the job posting or do broader company research yet.
+6. Only after every configured hard gate is PASS, research the exact role. First search the company's official careers site for a matching title, location, and description. If no posting is linked or found, report that. Use the official posting to verify role details and look for a published compensation range; compare any range to the configured salary preference using `references/evaluation-criteria.md`. State whether compensation came from the recruiter or the official posting. If the official posting has no range, leave the posting-based compensation result UNKNOWN and do not infer a range from unrelated roles.
+7. After all hard gates pass, research company financial outlook and workplace culture using permitted sources. If research tools are unavailable or a source cannot be accessed, say so and mark unsupported signals UNKNOWN.
+8. Return the report using `references/report-template.md`.
 
-Follow `references/evaluation-criteria.md` for status, title-fit, and salary logic and `references/company-research.md` for research/source boundaries. Do not invent facts, sources, ratings, or citations. Distinguish recruiter-provided claims, sourced facts, and inference. Date time-sensitive claims when available.
+Follow `references/evaluation-criteria.md` for status, title-fit, and salary logic and `references/company-research.md` for research/source boundaries. Do not invent facts, sources, ratings, or citations. Distinguish recruiter-provided claims, official job-posting details, other sourced facts, and inference. Date time-sensitive claims when available.
 
 ## Recommendation
 
@@ -35,6 +36,6 @@ Follow `references/evaluation-criteria.md` for status, title-fit, and salary log
 
 ## Report style
 
-Start with a decision headline, such as `## ❌ Decline — contract role`, followed by the role and a brief title-fit assessment. Show requirements in a compact table using `✅ Pass`, `❌ Fail`, and `❔ Unknown`, always with the written status. State the decisive reason in one direct sentence near the top. Include only relevant caveats, company signals, recruiter questions, and source links. If research was not performed, say so explicitly. Never reveal private settings such as the salary threshold; report only whether the opportunity meets the configured floor. Keep the output concise and accessible without relying on color or emoji alone.
+Start with a decision headline, such as `## ❌ Decline — contract role`, followed by the role and a brief title-fit assessment. Show requirements in a compact table using `✅ Pass`, `❌ Fail`, and `❔ Unknown`, always with the written status. State the decisive reason in one direct sentence near the top. Only report job-posting and company research after all configured hard gates pass; otherwise say it was skipped because the minimum requirements did not pass or need confirmation. When a posting is found, link it and identify any compensation range as recruiter-provided or posting-provided. Include only relevant caveats, company signals, recruiter questions, and source links. Never reveal private settings such as the salary threshold; report only whether the opportunity meets the configured floor. Keep the output concise and accessible without relying on color or emoji alone.
 
 A favorable company signal cannot offset a failed hard gate. Do not imply research is comprehensive.

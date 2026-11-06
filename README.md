@@ -25,7 +25,7 @@ Set `target_job_titles` to a YAML list. `employment_type_is_hard_gate: true` mea
 
 ## MVP scope and limits
 
-This repository contains instructions and examples, not a server, database, inbox integration, or guaranteed live research. Research depends on the assistant's available tools and permitted access. The evaluator does not contact recruiters or decide for the user. Glassdoor use must follow normal authorized access; scraping and access-control bypass are out of scope.
+This repository contains instructions and examples, not a server, database, inbox integration, or guaranteed live research. The assistant checks hard gates first; it searches the official company careers site for the exact role and published compensation only after all configured hard gates pass. Research depends on available tools and permitted access. The evaluator does not contact recruiters or decide for the user. Glassdoor use must follow normal authorized access; scraping and access-control bypass are out of scope.
 
 ## Suggested manual checks
 

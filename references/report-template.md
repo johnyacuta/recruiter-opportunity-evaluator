@@ -11,7 +11,7 @@
 |---|---|---|
 | Remote and location eligibility | ✅ Pass / ❌ Fail / ❔ Unknown | <evidence or missing detail> |
 | Full-time direct employment | ✅ Pass / ❌ Fail / ❔ Unknown | <evidence or missing detail> |
-| Salary floor | ✅ Pass / ❌ Fail / ❔ Unknown | <comparison or missing detail> |
+| Salary floor — recruiter details | ✅ Pass / ❌ Fail / ❔ Unknown | <range and comparison, or missing detail> |
 
 **Decision reason:** <one direct sentence explaining the recommendation; lead with any failed hard gate.>
 
@@ -21,6 +21,8 @@
 
 ### Company signals
 
+- **Official job posting:** [Matching role](URL) / Not found / Not checked — <confirm title/location match; posting research occurs only after all hard gates pass>.
+- **Company-posted compensation:** <range, currency, basis, and comparison to configured floor> / UNKNOWN — <reason>. Keep this distinct from recruiter-provided pay.
 - **Financial outlook:** Positive / Mixed / Concerning / Unknown — <brief evidence-based summary and link, or why unknown>.
 - **Workplace culture:** Positive / Mixed / Concerning / Unknown — <rating, review count/date if available, limitation, and link, or why unknown>.
 - **Research status:** <what was checked, or say company research was not performed and why>.
