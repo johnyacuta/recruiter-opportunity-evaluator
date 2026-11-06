@@ -21,7 +21,7 @@ Do not share or commit the private settings file. The example file should contai
 
 ## Job title preferences
 
-Set `target_job_titles` to a YAML list. The evaluator treats close variants as relevant matches rather than requiring exact title text. Example titles in the template are illustrative; customize them privately.
+Set `target_job_titles` to a YAML list. `employment_type_is_hard_gate: true` means contract, contract-to-hire, part-time, or other non-full-time arrangements are a no-go; unclear terms are UNKNOWN until confirmed. The evaluator treats close variants as relevant matches rather than requiring exact title text. Example titles in the template are illustrative; customize them privately.
 
 ## MVP scope and limits
 

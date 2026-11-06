@@ -14,13 +14,15 @@ Evaluate remote/location eligibility, employment type, and compensation accordin
 
 Do not infer missing terms from job titles, company norms, or recruiter optimism. Without a configured salary floor, salary is UNKNOWN until clarified. If salary_floor_is_hard_gate is false, report the comparison as a preference signal, not a disqualifying gate.
 
+When `employment_type_is_hard_gate` is true, only explicitly stated direct full-time employment passes. Contract, contract-to-hire, part-time, or other non-full-time arrangements FAIL and are a no-go. If employment type is omitted or unclear, mark UNKNOWN and ask for clarification. Do not assume that full-time hours make a contract a full-time employment opportunity.
+
 ## Salary
 
 Compare guaranteed base salary when the user configured a base-salary floor. Do not count bonus, equity, or commission unless configured. Entire range at/above floor: PASS; entirely below: FAIL; range straddles floor: UNKNOWN. Omitted/negotiable salary or unclear currency, period, or basis: UNKNOWN.
 
 ## Location and employment
 
-Remote roles may restrict hiring by region. Compare restrictions with allowed_work_regions; unclear eligibility is UNKNOWN. Apply remote_requirement and employment_type_requirement from settings. Contract or part-time is not automatically a mismatch if the user has configured otherwise.
+Remote roles may restrict hiring by region. Compare restrictions with allowed_work_regions; unclear eligibility is UNKNOWN. Apply remote_requirement and employment_type_requirement from settings. Employment type becomes a hard no-go when `employment_type_is_hard_gate` is true.
 
 ## Quality signals
 

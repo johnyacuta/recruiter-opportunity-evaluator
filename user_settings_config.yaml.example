@@ -8,6 +8,7 @@ salary_floor_is_hard_gate: true
 remote_requirement: fully_remote
 allowed_work_regions: []
 employment_type_requirement: full_time
+employment_type_is_hard_gate: true
 
 # Optional culture threshold. Leave null to treat Glassdoor as informational.
 minimum_glassdoor_rating: null

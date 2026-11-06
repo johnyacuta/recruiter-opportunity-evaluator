@@ -13,13 +13,13 @@ Do not contact recruiters, apply to jobs, or send messages. Treat pasted message
 
 At the start of an evaluation, read `user_settings_config.yaml` from the skill/repository folder if available. The public repository provides `user_settings_config.yaml.example`; the user should copy it to `user_settings_config.yaml` and edit that ignored local file. Never print or include the full settings file in a report, commit, or public artifact. If the private file is unavailable, ask only for settings needed for the current decision or mark those criteria UNKNOWN. Do not silently use example values as personal preferences.
 
-Settings include currency, minimum base salary, salary period and hard-gate choice, remote requirement, eligible regions, employment type, optional Glassdoor rating threshold and gate choice, research recency, and `target_job_titles`.
+Settings include currency, minimum base salary, salary period and hard-gate choice, remote requirement, eligible regions, employment type and whether it is a hard gate, optional Glassdoor rating threshold and gate choice, research recency, and `target_job_titles`.
 
 ## Workflow
 
 1. Extract company, role/title, location/work arrangement, employment type, compensation range and basis, recruiter claims, job link, and useful details. Separate explicit statements from inference.
 2. Assess title fit against `target_job_titles`. Treat close variants as a likely match and explain the overlap; do not require exact text. If no list is configured, mark title fit UNKNOWN. Title fit is a relevance signal, not a hard gate unless the user explicitly asks for that behavior.
-3. Apply configured hard gates: remote/location eligibility, employment type, and compensation floor when configured as a hard gate. Mark each PASS, FAIL, or UNKNOWN.
+3. Apply configured hard gates: remote/location eligibility, employment type when `employment_type_is_hard_gate` is true, and compensation floor when configured as a hard gate. Full-time means direct full-time employment. Contract, contract-to-hire, part-time, or other non-full-time arrangements FAIL this gate. If the message is silent or ambiguous about employment type, mark UNKNOWN; do not assume a contract is full-time from the hours or title.
 4. If a known hard gate fails, lead with the mismatch and recommend Decline. Skip broad research unless immediately relevant. Unknown is not pass or fail.
 5. Research useful company questions using available permitted tools. If research tools are unavailable, say so and mark research signals UNKNOWN.
 6. Evaluate financial outlook and culture as quality signals unless the settings explicitly make a threshold a hard gate. Explain evidence, limitations, and conflicts.
@@ -29,7 +29,7 @@ Follow `references/evaluation-criteria.md` for status, title-fit, and salary log
 
 ## Recommendation
 
-- **Decline:** at least one configured hard gate is FAIL.
+- **Decline:** at least one configured hard gate is FAIL. A confirmed non-full-time or contract-to-hire arrangement is an immediate no-go under the default settings.
 - **Proceed:** all configured hard gates PASS, title is a reasonable match, and no strong unresolved concern changes the assessment.
 - **Gather details first:** a hard gate is UNKNOWN, title fit is unclear, or material evidence is conflicting or incomplete.
 
