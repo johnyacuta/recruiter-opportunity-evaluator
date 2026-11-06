@@ -1,27 +1,32 @@
 # Recruiter Opportunity Evaluator
 
-A skill-first MVP for evaluating a recruiter message you paste into an AI assistant. It checks configurable hard requirements, optionally researches company signals using accessible sources, and returns an evidence-linked report.
+A skill-first MVP for evaluating recruiter messages you paste into an AI assistant. It checks configurable job-title preferences and hard requirements, optionally researches company signals using accessible sources, and returns an evidence-linked report.
 
 ## Repository contents
 
-- `SKILL.md` — agent workflow and recommendation rules.
-- `references/evaluation-criteria.md` — PASS / FAIL / UNKNOWN and salary/location logic.
-- `references/company-research.md` — source guidance and research/access limits.
-- `references/report-template.md` — reusable output format.
-- `examples/` — fictional sample opportunities and expected gate outcomes.
+- `SKILL.md` — evaluator workflow and recommendation rules.
+- `user_settings_config.yaml.example` — public template for personal settings.
+- `.gitignore` — excludes the private `user_settings_config.yaml`.
+- `references/` — evaluation criteria, company research guidance, and report format.
+- `examples/` — fictional sample opportunities and expected outcomes.
 
-## Use
+## Configure and use
 
-1. Review `SKILL.md` and set your own preferences in your assistant's private configuration or the conversation. Do not commit personal thresholds to this public repository.
-2. Paste a recruiter message into an assistant that supports reusable skills and provide the skill files, or paste the relevant instructions and references into the conversation.
-3. Review the report, especially UNKNOWN items, and confirm claims against linked sources before deciding.
+1. Copy `user_settings_config.yaml.example` to `user_settings_config.yaml` in the repository root.
+2. Edit the private copy with your salary floor, region, title preferences, and other settings. The `.gitignore` excludes it from Git.
+3. Provide the skill and its reference files to an assistant that supports reusable skills, then paste a recruiter message for evaluation.
+4. Review the report, especially UNKNOWN items, and confirm research claims using linked sources.
 
-The example settings and companies in `examples/` are fictional and illustrative. Salary and region preferences in examples are not recommendations.
+Do not share or commit the private settings file. The example file should contain only generic or fictional values. If you already committed personal data, removing it from the latest version does not remove it from Git history.
+
+## Job title preferences
+
+Set `target_job_titles` to a YAML list. The evaluator treats close variants as relevant matches rather than requiring exact title text. Example titles in the template are illustrative; customize them privately.
 
 ## MVP scope and limits
 
-This repository is instruction files and examples; it does not contain a server, database, inbox integration, or guaranteed live research. Research depends on the assistant's available tools and permitted access. The evaluator does not contact recruiters or make decisions for the user. Glassdoor access must use normal authorized access; scraping and access-control bypass are out of scope.
+This repository contains instructions and examples, not a server, database, inbox integration, or guaranteed live research. Research depends on the assistant's available tools and permitted access. The evaluator does not contact recruiters or decide for the user. Glassdoor use must follow normal authorized access; scraping and access-control bypass are out of scope.
 
 ## Suggested manual checks
 
-Try the good and bad fictional examples. Confirm that explicit mismatches fail, absent information stays UNKNOWN, salary ranges that cross the configured floor remain UNKNOWN, and research claims include working sources. Do not use real private recruiter messages in public examples.
+Try the fictional examples. Confirm explicit mismatches fail, absent information stays UNKNOWN, a salary range that crosses the configured floor remains UNKNOWN, title variants are treated sensibly, and research claims include sources. Never use real private recruiter messages in public examples.

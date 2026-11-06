@@ -1,0 +1,21 @@
+# Copy to user_settings_config.yaml and edit for your private use.
+# Keep the real settings file out of version control.
+currency: USD
+minimum_base_salary: null
+salary_period: annual
+salary_floor_is_hard_gate: true
+
+remote_requirement: fully_remote
+allowed_work_regions: []
+employment_type_requirement: full_time
+
+# Optional culture threshold. Leave null to treat Glassdoor as informational.
+minimum_glassdoor_rating: null
+glassdoor_rating_is_hard_gate: false
+research_recency_days: 365
+
+# Matching preferences; close variants are acceptable, not exact-string requirements.
+target_job_titles:
+  - Senior DevOps Engineer
+  - Senior Infrastructure Engineer
+  - Senior Software Engineer - Infrastructure
