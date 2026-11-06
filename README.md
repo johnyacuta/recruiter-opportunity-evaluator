@@ -21,7 +21,7 @@ Do not share or commit the private settings file. The example file should contai
 
 ## Job title preferences
 
-Set `target_job_titles` and `candidate_skills` to YAML lists. The evaluator treats close title variants and adjacent skills as relevant matches, while distinguishing direct matches from gaps. `employment_type_is_hard_gate: true` means contract, contract-to-hire, part-time, or other non-full-time arrangements are a no-go; unclear terms are UNKNOWN until confirmed. Example titles and skills in the template are illustrative; customize them privately.
+Set `target_job_titles` to a YAML list and organize `candidate_skills` under the categories shown in the example. Skills categories contain lists; certifications are objects with `name`, `status`, and `expiration_date` (use `null` when there is no expiration date). The template's sample values are fictional formatting examples—replace them in your ignored local copy, and do not put your personal profile in the public template. The evaluator treats close title variants and adjacent skills as relevant matches, while distinguishing direct matches from gaps. `employment_type_is_hard_gate: true` means contract, contract-to-hire, part-time, or other non-full-time arrangements are a no-go; unclear terms are UNKNOWN until confirmed.
 
 ## MVP scope and limits
 

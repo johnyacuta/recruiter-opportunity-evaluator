@@ -21,12 +21,24 @@ target_job_titles:
   - Senior Infrastructure Engineer
   - Senior Software Engineer - Infrastructure
 
-# Add your skills privately in user_settings_config.yaml.
-# Keep these example categories empty to avoid publishing a personal profile.
+# Fictional formatting examples only. Replace these with your own skills in the
+# ignored user_settings_config.yaml; do not publish your personal profile here.
 candidate_skills:
-  languages: []
-  ai_assisted_development: []
-  cloud: []
-  infrastructure_as_code: []
-  ci_cd: []
-  certifications: []
+  languages:
+    - Python
+    - Go
+  ai_assisted_development:
+    - Example coding assistant
+  cloud:
+    - Example Cloud A
+  infrastructure_as_code:
+    - Example IaC tool
+  ci_cd:
+    - Example CI/CD platform
+  certifications:
+    - name: Example Cloud Certification
+      status: active
+      expiration_date: null
+    - name: Example Kubernetes Certification (expired example)
+      status: expired
+      expiration_date: 2025-06
